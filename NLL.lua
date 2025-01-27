@@ -307,12 +307,6 @@ liber.addWindown = function(o)
 		TextLabel.TextSize = TextSize
 		TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
-		if liber.fun.Tap.Value == false then
-			liber.fun.Tap.Value = true
-			Tap.BackgroundTransparency = 0
-			TextLabel.TextColor3 = Color3.fromRGB(0,0,0)
-		end
-
 		local a = tonumber(TextLabel.TextBounds.X) and TextLabel.TextBounds.X + 45 or 70
 		Tap.Size = UDim2.new(0,  a , 0, 21)
 
@@ -329,6 +323,14 @@ liber.addWindown = function(o)
 		PageMain.BorderSizePixel = 0
 		PageMain.Position = UDim2.new(0.0233333334, 0, 0.119738936, 0)
 		PageMain.Size = UDim2.new(0, 571, 0, 249)
+		PageMain.Visible = false
+		
+		if liber.fun.Tap.Value == false then
+			liber.fun.Tap.Value = true
+			Tap.BackgroundTransparency = 0
+			TextLabel.TextColor3 = Color3.fromRGB(0,0,0)
+			PageMain.Visible = true
+		end
 
 		local UICorner = Instance.new("UICorner")
 		UICorner.Parent = PageMain
@@ -1004,6 +1006,7 @@ liber.addWindown = function(o)
 					DropF:Add(v)
 				end
 				callback(default)
+				return DropF
 			end
 
 			liber.fun.FuncMain.CreateMultiDropdown  = function(options) 
@@ -1268,6 +1271,7 @@ liber.addWindown = function(o)
 					DropF:Add(v)
 				end
 				callback(DropFF)
+				return DropF
 			end
 
 			liber.fun.FuncMain.CreateColorpicker  = function(options) 
