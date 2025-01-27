@@ -388,7 +388,7 @@ liber.addWindown = function(o)
 
 		Tap.MouseButton1Click:Connect(function()
 			for i,v in pairs(Bottom:GetChildren()) do
-				if v:IsA('Frame') then
+				if v:IsA('Frame') and v.Name ~= 'Search' then
 					v.Visible = false
 				end
 			end
