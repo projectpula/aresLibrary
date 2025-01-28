@@ -1704,7 +1704,6 @@ liber.addWindown = function(o)
 
 		return liber.fun.Tap 
 	end
-	
 	local UIPadding = Instance.new("UIPadding")
 	local UIListLayout = Instance.new("UIListLayout")
 
@@ -1717,7 +1716,7 @@ liber.addWindown = function(o)
 	UIListLayout.Padding = UDim.new(0, 3)
 
 	UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-		ScrollingTap.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.Y + 85 + 305, 0, 0)
+		ScrollingTap.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X + 60, 0, 0)
 	end)
 
 	return liber.fun
