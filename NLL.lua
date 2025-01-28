@@ -36,8 +36,7 @@ local function GetImage(name, url)
 		return getcustomasset(path)
 	end
 end
-
---local IconGen = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/refs/heads/master/src/Icons.lua"))()['assets']
+local IconGen = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/refs/heads/master/src/Icons.lua"))()['assets']
 
 local liber = {
 	GuiFunction = {
@@ -815,8 +814,8 @@ liber.addWindown = function(o)
 				ImageLabel.BorderSizePixel = 0
 				ImageLabel.Position = UDim2.new(0.868354499, 0, 0.5, 0)
 				ImageLabel.Size = UDim2.new(0, 15, 0, 15)
-				ImageLabel.Image = "http://www.roblox.com/asset/?id=6031094687"
 				ImageLabel.ImageColor3 = Color3.fromRGB(142, 144, 150)
+				ImageLabel.Image = IconGen["lucide-mouse-pointer-click"]
 
 				TextButton.Parent = Button
 				TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
