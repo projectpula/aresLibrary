@@ -370,6 +370,7 @@ liber.addWindown = function(o)
 		Tap.BackgroundTransparency = 1
 
 		UICorner_4.Parent = Tap
+		UICorner_4.CornerRadius = UDim.new(0, 15)
 
 		UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(213, 55, 102)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(235, 30, 157))}
 		UIGradient.Parent = Tap
