@@ -112,6 +112,85 @@ liber.addWindown = function(o)
 	Main.Size = UDim2.new(0, 600, 0, 350)
 
 	UICorner.Parent = Main
+	
+	local OpenUI = true
+	UserInputService.InputBegan:Connect(function(input)
+		if input.KeyCode == (o.KeyCode or Enum.KeyCode.LeftControl)  then
+			if OpenUI then
+				OpenUI = false
+				Main.Visible = false
+			else
+				OpenUI = true
+				Main.Visible = true
+			end
+		end
+	end)
+
+	if par:FindFirstChild("CloseUI") then
+		for i,v in pairs(par:GetChildren()) do
+			if v.Name == "CloseUI" then
+				v:Destroy()
+			end
+		end
+	end
+	if UserInputService.TouchEnabled then
+		local CloseUI = Instance.new("ScreenGui")
+		local CloseUIMain = Instance.new("Frame")
+		local Logo = Instance.new("ImageLabel")
+		local UICorner = Instance.new("UICorner")
+		local Use = Instance.new("TextButton")
+
+		CloseUI.Name = "CloseUI"
+		CloseUI.Parent = par
+		CloseUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+		CloseUIMain.Name = "CloseUIMain"
+		CloseUIMain.Parent = CloseUI
+		CloseUIMain.BackgroundColor3 = Color3.fromRGB(31, 35, 44)
+		CloseUIMain.BorderColor3 = Color3.new(0, 0, 0)
+		CloseUIMain.BorderSizePixel = 0
+		CloseUIMain.Position = UDim2.new(0.0319926888, 0, 0.129, 0)
+		CloseUIMain.Size = UDim2.new(0, 75, 0, 0)
+
+		CloseUIMain:TweenSize(UDim2.new(0, 75, 0, 51),"Out","Back",3.5,false)
+
+		Logo.Name = "Logo"
+		Logo.Parent = CloseUIMain
+		Logo.BackgroundColor3 = Color3.new(1, 1, 1)
+
+		Logo.BackgroundTransparency = 1
+		Logo.BorderColor3 = Color3.new(0, 0, 0)
+		Logo.BorderSizePixel = 0
+		Logo.Position = UDim2.new(0.323333323, 0, 0.235294119, 0)
+		Logo.Size = UDim2.new(0.349999994, 0, 0.5, 0)
+		Logo.Image = "rbxassetid://".. 78590114316385
+
+
+		UICorner.Parent = CloseUIMain
+		UICorner.CornerRadius = UDim.new(0, 100)
+
+		Use.Name = "Use"
+		Use.Parent = CloseUIMain
+		Use.BackgroundColor3 = Color3.new(1, 1, 1)
+		Use.BackgroundTransparency = 1
+		Use.BorderColor3 = Color3.new(0, 0, 0)
+		Use.BorderSizePixel = 0
+		Use.Size = UDim2.new(1, 0, 1, 0)
+		Use.Font = Enum.Font.SourceSans
+		Use.Text = ""
+		Use.TextColor3 = Color3.new(0, 0, 0)
+		Use.TextSize = 14
+
+		Use.MouseButton1Click:Connect(function()
+			if OpenUI then
+				OpenUI = false
+				Main.Visible = false
+			else
+				OpenUI = true
+				Main.Visible = true
+			end
+		end)
+	end
 
 	local Top = Instance.new("Frame")
 	local UICorner_2 = Instance.new("UICorner")
