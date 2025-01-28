@@ -1712,6 +1712,10 @@ liber.addWindown = function(o)
 		UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout.Padding = UDim.new(0, 3)
+		
+		UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+			ScrollingTap.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.Y + 35, 0, 0)
+		end)
 
 		return liber.fun.Tap 
 
