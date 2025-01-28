@@ -344,11 +344,11 @@ liber.addWindown = function(o)
 		print('Not Work Now ')
 	end)
 
-	liber.fun = {}
-	liber.fun.Tap  = {
+	liber.fun = {
 		Value = false
 	}
 	liber.fun.CreateTap = function( o : teble)
+		liber.fun.Tap  = {}
 		if type(o) ~= 'table' then
 			assert(type(o) == 'table', "need Table")
 		end
@@ -404,8 +404,8 @@ liber.addWindown = function(o)
 		PageMain.Size = UDim2.new(0, 571, 0, 249)
 		PageMain.Visible = false
 		
-		if liber.fun.Tap.Value == false then
-			liber.fun.Tap.Value = true
+		if liber.fun.Value == false then
+			liber.fun.Value = true
 			Tap.BackgroundTransparency = 0
 			TextLabel.TextColor3 = Color3.fromRGB(0,0,0)
 			PageMain.Visible = true
